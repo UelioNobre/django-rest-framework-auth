@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Budget, Marriage, Vendor
+
+admin.site.register(Budget)
+admin.site.register(Marriage)
+admin.site.register(Vendor)
