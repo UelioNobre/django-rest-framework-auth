@@ -1,5 +1,8 @@
-from .models import Budget, Marriage, Vendor
+# budget/serializers.py
+
+
 from rest_framework import serializers
+from .models import Vendor, Marriage, Budget
 
 
 class VendorSerializer(serializers.HyperlinkedModelSerializer):
@@ -14,8 +17,14 @@ class BudgetSerializer(serializers.ModelSerializer):
         fields = ["id", "vendors", "marriage"]
 
 
+class NestedBudgetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Budget
+        fields = ["id", "vendors"]
+
+
 class MarriageSerializer(serializers.ModelSerializer):
-    budget = BudgetSerializer()
+    budget = NestedBudgetSerializer()
 
     class Meta:
         model = Marriage
