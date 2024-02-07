@@ -2,6 +2,14 @@ from django.contrib import admin
 
 from .models import Budget, Marriage, Vendor
 
-admin.site.register(Budget)
-admin.site.register(Marriage)
+
+class BudgetInline(admin.StackedInline):
+    model = Budget
+
+
+class MarriageAdmin(admin.ModelAdmin):
+    inlines = [BudgetInline]
+
+
 admin.site.register(Vendor)
+admin.site.register(Marriage, MarriageAdmin)
