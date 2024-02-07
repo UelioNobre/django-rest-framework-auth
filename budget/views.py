@@ -1,6 +1,11 @@
 from rest_framework import viewsets
 from .models import Vendor, Marriage, Budget
-from .serializers import VendorSerializer, MarriageSerializer, BudgetSerializer
+from .serializers import (
+    VendorSerializer,
+    MarriageSerializer,
+    BudgetSerializer,
+    AdminVendorSerializer,
+)
 
 
 class BudgetViewSet(viewsets.ModelViewSet):
@@ -15,4 +20,9 @@ class MarriageViewSet(viewsets.ModelViewSet):
 
 class VendorViewSet(viewsets.ModelViewSet):
     queryset = Vendor.objects.all()
-    serializer_class = VendorSerializer
+    serializer_class = AdminVendorSerializer
+
+    def get_serializer_class(self):
+        if self.action in ("create", "destroy", "update"):
+            return AdminVendorSerializer
+        return VendorSerializer
