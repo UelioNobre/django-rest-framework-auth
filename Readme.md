@@ -95,3 +95,15 @@ python3 manage.py migrate # Efetuar as migrações para criar o banco
 python3 manage.py createsuperuser # Recrie seu superuser
 
 ```
+
+
+### Autenticações via Token
+
+Ao optar por utilizar tokens no projeto, é necessário executar o comando de migrate, para que as tabelas de tokens sejam adicionadas no banco de dados do projeto.
+
+```bash
+# O ambiente virtual deve estar ativado
+python manage.py migrate
+```
+
+Após a execução do comando acima, será criada a tabela `authtoken_token` no banco de dados
