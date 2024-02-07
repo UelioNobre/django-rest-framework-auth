@@ -46,6 +46,7 @@ USE marryme_database;
 
 ```python
 # file: settings.py
+import os
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
