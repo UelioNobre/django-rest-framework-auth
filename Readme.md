@@ -74,6 +74,24 @@ docker run -d -p 3306:3306 --name=marryme-mysql-container -e MYSQL_ROOT_PASSWORD
 
 #### Passo 7 - Executando as migrations e criando o superusuario
 ```bash
+python manage.py runserver
 python manage.py migrate
+python manage.py makemigrations
 python manage.py createsuperuser
+python manage.py showmigrations
+```
+
+### Resetar imagem docker e migrations Django
+```bash
+docker ps # Para descobrir o ID do seu container com o banco de dados
+docker stop <ID do seu container do banco> # Parar o container
+docker remove <ID do seu container do banco> # Deletar o container
+docker build -t seu-projeto-db .
+docker run -d -p 3306:3306 --name=seu-projeto-mysql-container -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=seu-projeto_database marryme-db # Recriar o container
+python3 manage.py migrate seu-app zero # Desfazer todas as migrations do app budget
+rm seu-app/migrations/000* # Deletar a migration
+python3 manage.py makemigrations # Recriar as migrations - agora com o campo user
+python3 manage.py migrate # Efetuar as migrações para criar o banco
+python3 manage.py createsuperuser # Recrie seu superuser
+
 ```
