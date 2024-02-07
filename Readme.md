@@ -74,6 +74,8 @@ docker run -d -p 3306:3306 --name=marryme-mysql-container -e MYSQL_ROOT_PASSWORD
 
 #### Passo 7 - Executando as migrations e criando o superusuario
 ```bash
+python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
+python manage.py runserver
 ```
