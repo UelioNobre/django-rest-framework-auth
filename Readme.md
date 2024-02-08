@@ -107,3 +107,5 @@ python manage.py migrate
 ```
 
 Após a execução do comando acima, será criada a tabela `authtoken_token` no banco de dados
+
+### Autenticação via JWT 
