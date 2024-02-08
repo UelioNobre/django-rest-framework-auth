@@ -23,6 +23,7 @@ pip install markdown
 pip install django-filter
 pip install pymysql
 pip install cryptography
+pip install djangorestframework-simplejwt
 ```
 
 #### Passo 3 - Iniciar projeto Django
