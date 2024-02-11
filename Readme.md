@@ -1,6 +1,6 @@
 # Marryme
 
-Projeto feito com Django, Django Rest Framework e JWT, para fins didáticos.
+Projeto feito com Django/DRF, para fins didáticos, com os métodos de autenticação Basic Auth, Token e JWT.
 
 #### Passo 1
 > Criação de ambiente virtual
