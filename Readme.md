@@ -1,6 +1,6 @@
 # Marryme
 
-Projeto feito com Django, Django Rest Framework e JWT.
+Projeto feito com Django, Django Rest Framework e JWT, para fins didáticos.
 
 #### Passo 1
 > Criação de ambiente virtual
